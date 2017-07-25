@@ -18,10 +18,7 @@ ENV VARNISH_PORT 80
 EXPOSE 80
 
 # Expose volumes to be able to use data containers
-VOLUMES ["/var/lib/varnish", "/etc/varnish"]
+VOLUME ["/var/lib/varnish", "/etc/varnish"]
 
-RUN echo Europe/London >/etc/timezone && \
-    ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
