@@ -6,8 +6,8 @@ backend default {
   .port = "${VARNISH_BACKEND_PORT}";
   .probe = {
       .url = "/";
-      .timeout = 600ms;
-      .interval = 1s;
+      .timeout = 1s;
+      .interval = 2s;
       .window = 10;
       .threshold = 8;
     }
