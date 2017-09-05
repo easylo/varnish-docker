@@ -10,7 +10,8 @@ COPY supervisor/ /etc/supervisor/conf.d/
 RUN chmod a+x -R /etc/supervisor/conf.d/scripts/
 
 COPY conf/default.vcl /etc/varnish/default.vcl
-COPY conf/varnishncsa /etc/default/varnishncsa
+# COPY conf/varnishncsa /etc/default/varnishncsa
+COPY conf/varnishncsa.service /lib/systemd/system/varnishncsa.service
 
 ENV VARNISH_BACKEND_PORT 80
 ENV VARNISH_BACKEND_IP 127.0.0.1
